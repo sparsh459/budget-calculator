@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--                                      FIRST-HALF OF THE SCREEN                                 -->
+    <div class="budget-container">
+        <div class="app-title">
+            <a href="">Make Your<b>Budget</b></a>
+        </div>
+        <!-- this is the container above the dashboard -->
+        <div class="budget-header">
+            <div class="balance">
+                <div class="title">
+                    Balance
+                </div>
+                <div class="value">
+                    <small>$</small>0
+                </div>
+            </div>
+            <!-- this comes under the budget-header container showing income on left side and expenditure on rught -->
+            <div class="account">
+                <div class="income">
+                    <div class="title">
+                        Income
+                    </div>
+                    <div class="income-total">
+                        <small>$</small>0
+                    </div>
+                </div>
+                <div class="chart"></div>
+                <div class="outcome">
+                    <div class="title">
+                        Expenditure
+                    </div>
+                    <div class="outcome-total">
+                        <small>$</small>0
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--                                   SECOND-HALF OF THE SCREEN                                 -->
+        <div class="budget-dashboard">
+            <div class="dash-title">Dashboard</div>
+
+            <!-- the navbar thing the dashboard section -->
+            <div class="toggle">
+                <div class="tab1">Expenses</div>
+                <div class="tab2">Income</div>
+                <div class="tab3 active">All</div>
+            </div>
+            <!-- this will show all the list of all the incomes you have  -->
+            <div class="hide" id="income">
+                <ul class="list">
+                    <!-- 
+                        this is what wil be added indie with help of javascript
+                        <li id="0" class="income">
+                            <div class="entry">Salary: $8000</div>
+                            <div id="edit"></div>
+                            <div id="delete"></div>
+                        </li>
+                     -->
+                </ul>
+                <!-- this is the input area where we add title of what are we including and also the amount of that item -->
+                <div class="input">
+                    <input type="text" id="income-title-input" name="title" placeholder="Title">
+                    <input type="number" id="income-amount-input" name="amount" placeholder="$0">
+                    <div class="add-income"><img src="icon/plus.png" alt=""></div>
+                </div>
+            </div>
+            <!-- this will show all the list of all the expenses you have  -->
+            <div class="hide" id="expense">
+                <ul class="list"></ul>
+                <div class="input">
+                    <input type="text" id="expense-title-input" name="title" placeholder="Title">
+                    <input type="number" id="expense-amount-input" name="amount" placeholder="$0">
+                    <div class="add-expense"><img src="icon/plus.png" alt=""></div>
+                </div>
+            </div>
+            <!-- this will show all the list of all the incomes and expenses you have  -->
+            <div id="all">
+                <ul class="list"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="chart.js"></script>
+    <script src="budget.js"></script>
+</body>
+
+</html>
