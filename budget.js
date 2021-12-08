@@ -141,7 +141,7 @@ function clearInput(inputs){
 }
 
 
-
+// clicking delete or edit button
 incomeList.addEventListener("click", deleteOrEdit);
 expenseList.addEventListener("click", deleteOrEdit);
 allList.addEventListener("click", deleteOrEdit);
@@ -160,12 +160,14 @@ function deleteOrEdit(event){
     }
 }
 
+// to delete from ui and entery_list
 function deleteEntry(entry){
     ENTRY_LIST.splice( entry.id, 1);
 
     updateUI();
 }
 
+// to edit the entry from the entry_list and updating it in the UI and entry_list
 function editEntry(entry){
     console.log(entry)
     let ENTRY = ENTRY_LIST[entry.id];
@@ -182,8 +184,9 @@ function editEntry(entry){
 }
 
 
-// funtion to update  UI 
+// funtion to update  UI, it is called whenever addincome and addexpense button is clicked
 function updateUI(){
+    // calculating all required balances
     income = calculateTotal("income", ENTRY_LIST);
     outcome = calculateTotal("expense", ENTRY_LIST);
     balance = Math.abs(calculateBalance(income, outcome));
@@ -196,6 +199,7 @@ function updateUI(){
     outcomeTotalEl.innerHTML = `<small>$</small>${outcome}`;
     incomeTotalEl.innerHTML = `<small>$</small>${income}`;
 
+    // clearing the UI list before showing the elements
     clearElement( [expenseList, incomeList, allList] );
 
     ENTRY_LIST.forEach( (entry, index) => {
@@ -209,6 +213,7 @@ function updateUI(){
 
     updateChart(income, outcome);
 
+    // saving to local storage and converting data to a json string
     localStorage.setItem("entry_list", JSON.stringify(ENTRY_LIST));
 }
 
@@ -227,6 +232,7 @@ function showEntry(list, type, title, amount, id){
     list.insertAdjacentHTML(position, entry);
 }
 
+// it changes the UI to nothing removing every expense and income from the fromtend not the the local storage
 function clearElement(elements){
     elements.forEach( element => {
         element.innerHTML = "";
